@@ -5,7 +5,7 @@ Static HTML/CSS/JS website. No build step, no framework, no dependencies — eve
 ## File Structure
 
 ```
-nonno-recovery-redesign.html   ← Homepage
+index.html                     ← Homepage
 assets/
   site.css                     ← Shared stylesheet used by all program/area pages
   nonno-logo.png                ← Site logo (used in header/footer, transparent PNG)
@@ -29,11 +29,11 @@ robots.txt
 sitemap.xml
 ```
 
-**Important:** the homepage (`nonno-recovery-redesign.html`) uses its own inline `<style>` block. All pages inside `programs/` and `areas/` link out to the shared `assets/site.css` instead — this keeps the design consistent and means style changes only need to happen in one place. Do not delete or move `assets/site.css`, or every program and area page will lose all styling.
+**Important:** the homepage (`index.html`) uses its own inline `<style>` block. All pages inside `programs/` and `areas/` link out to the shared `assets/site.css` instead — this keeps the design consistent and means style changes only need to happen in one place. Do not delete or move `assets/site.css`, or every program and area page will lose all styling.
 
 ## Before Deploying
 
-1. **Rename the homepage file** — `nonno-recovery-redesign.html` should become `index.html` (or your host's expected entry-point filename) before going live. All internal links reference the homepage by relative path with anchors (e.g. `../nonno-recovery-redesign.html#verify-insurance`), so if you rename it, do a find-and-replace across every file in `programs/` and `areas/` for `nonno-recovery-redesign.html` → `index.html` (or whatever you rename it to).
+1. **Homepage is already named `index.html`** — every internal link across all 12 pages already points to `index.html`, so this is deployment-ready as-is. **Do not rename this file** without also updating every `href="../index.html#..."` reference in `programs/` and `areas/` — if the homepage gets renamed on the server without updating those links, every header/nav link on every other page will break. (This actually happened on a previous deploy — that's why this section exists.)
 
 2. **Update canonical URLs and schema** — every page has a `<link rel="canonical">` tag and `og:url` meta tag pointing to `https://www.nonnorecovery.com/...`. If the final live URL structure differs (e.g. program pages live at a different path), these need to be updated to match, along with the JSON-LD structured data (`<script type="application/ld+json">`) on each page.
 
@@ -45,7 +45,7 @@ sitemap.xml
 
 ## Local Preview
 
-No server or build step required — just open `nonno-recovery-redesign.html` directly in a browser. Internal links between pages use relative paths, so the whole folder structure needs to stay together (don't move `programs/` or `areas/` files out on their own).
+No server or build step required — just open `index.html` directly in a browser. Internal links between pages use relative paths, so the whole folder structure needs to stay together (don't move `programs/` or `areas/` files out on their own).
 
 ## Deployment Notes
 
