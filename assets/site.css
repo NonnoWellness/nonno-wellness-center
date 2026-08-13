@@ -257,3 +257,15 @@ footer.site address{font-style:normal; line-height:1.7;}
   font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-soft);
   margin-top:10px; text-align:center;
 }
+
+/* ---------- TOP PHOTO BANNER (program pages) ---------- */
+.room-photo-banner{position:relative; max-width:var(--maxw); margin:0 auto;}
+.room-photo-banner img{
+  width:100%; max-height:480px; object-fit:cover; object-position:center 35%; display:block;
+}
+.room-photo-caption{
+  position:absolute; left:24px; bottom:16px; margin:0; padding:8px 14px;
+  background:rgba(10,10,10,.72); color:#fff; font-size:13px; border-radius:8px;
+  font-family:'IBM Plex Mono',monospace;
+}
+@media (max-width:720px){ .room-photo-banner img{max-height:300px;} }
